@@ -40,16 +40,16 @@ body{
     height: 100%;
     width: 100%;
     display: grid;
-    background: #212837;
+    background: #004e14;
     grid-template: repeat(30, 1fr) / repeat(30,1fr);
 }
 
 .play-board .food{
-    background: #ff003d;
+    background: #ff003c;
 }
 
 .play-board .head{
-    background: #60cbff;
+    background: #eeff00;
 }
 
 .controls{
