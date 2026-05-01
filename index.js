@@ -29,3 +29,41 @@ const handleGameOver = () => {
     location.reload();
 }
 
+// Change velocity value based on key press 
+
+const changeDirection =e => {
+    if (e.key === "ArrowUp" && velocityY != 1) {
+        velocityX = 0;
+        velocityY = -1;
+    } else if (e.key === "ArrowDown" && velocityY != -1) {
+        velocityX = 0;
+        velocityY = 1;
+    } else if (e.key === "ArrowLeft" && velocityY != 1) {
+        velocityX = -1;
+        velocityY = 0;
+    } else if (e.key === "ArrowRight" && velocityY != -1) {
+        velocityX = 1;
+        velocityY = 0;
+    }
+}
+
+// Change DIrection on each key click
+
+controls.forEach(button => button.addEventListener("click", () => changeDirection({ key: button.CDATA_SECTION_NODE.key})));
+
+const initGame = () => {
+    if (gameOver) return handleGameOver();
+    let html = `<div class"food" style="grid-area: ${foodY} / ${foodX}"></div>`;
+
+    // When snake eat food
+    if (snakeX === foodX && snakeY === foodY) {
+        updateFoodPosition();
+        snakeBody.push([foodY, foodX]); // Add food to snake body array
+        score++;
+        highScore = score >= highScore ? score : highScore; // if score > high score => high score = score
+        
+        localStorage.setItem("high-score", highScore);
+        scoreElement.innerText = `Score: ${score}`;
+        highScoreElement.innerText = `High Score: ${highScore}`;
+    }
+}
