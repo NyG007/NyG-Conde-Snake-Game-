@@ -40,16 +40,17 @@ body{
     height: 100%;
     width: 100%;
     display: grid;
-    background: #004e14;
+    background: #ffacf8;
     grid-template: repeat(30, 1fr) / repeat(30,1fr);
 }
 
 .play-board .food{
     background: #ff003c;
+    background: url("./morango.jpg") center/contain no-repeat;
 }
 
 .play-board .head{
-    background: #eeff00;
+    background: #0e040d;
 }
 
 .controls{
